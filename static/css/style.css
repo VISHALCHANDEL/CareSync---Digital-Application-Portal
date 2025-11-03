@@ -1,0 +1,107 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #007bff, #6610f2);
+  overflow-x: hidden;
+  
+}
+
+/* Glass effect navbar */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.nav-item a {
+    position: relative;
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.nav-item a::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #edf1f2; /* accent color */
+    transition: width 0.3s ease;
+}
+
+.nav-item a:hover::after {
+    width: 100%;
+}
+
+/* Hero Section */
+.hero {
+  height: 90vh;
+  background: linear-gradient(120deg, #007bff, #6610f2);
+  color: white;
+  position: relative;
+  
+  background: url("https://example.com/path/to/background.jpg") no-repeat center center/cover;
+
+
+}
+.hero h1 {
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Card styling */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.glass-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Footer fix */
+.footer {
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 2s ease-in-out;
+}
+
+
+.logo {
+  height: 55px;
+  width: 55px;                /* keep width same for perfect circle */
+  border-radius: 50%;         /* makes it circular */
+  object-fit: cover;          /* ensures image fits inside the circle */
+  border: 2px solid #fff;     /* optional: white border for clarity */
+  background-color: transparent;
+  margin-right: 10px;
+  box-shadow: 0 0 6px rgba(255, 255, 255, 0.3); /* soft glow */
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);     /* slight zoom on hover */
+}
+
+
+.brand-text {
+  line-height: 1.2;
+}
+
+.brand-text small {
+  font-size: 0.8rem;
+  opacity: 0.9;
+}

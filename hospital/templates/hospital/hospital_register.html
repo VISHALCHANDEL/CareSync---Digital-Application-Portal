@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Hospital Registration</title>
+  <link rel="stylesheet" href="{% static 'hospital/style.css' %}">
+</head>
+<body>
+  <div class="form-container">
+    <h1>🏥 Hospital Registration</h1>
+    <form method="POST" novalidate>
+      {% csrf_token %}
+      {% for field in form %}
+        <div class="form-group">
+          <label>{{ field.label }}</label>
+          {{ field }}
+          {% if field.errors %}
+            <div class="error">{{ field.errors|striptags }}</div>
+          {% endif %}
+        </div>
+      {% endfor %}
+      <button type="submit" class="btn">Register Hospital</button>
+    </form>
+  </div>
+</body>
+</html>
