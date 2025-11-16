@@ -6,22 +6,58 @@
   <title>Hospital Registration</title>
   <link rel="stylesheet" href="{% static 'hospital/style.css' %}">
 </head>
-<body>
-  <div class="form-container">
-    <h1>🏥 Hospital Registration</h1>
-    <form method="POST" novalidate>
-      {% csrf_token %}
-      {% for field in form %}
-        <div class="form-group">
-          <label>{{ field.label }}</label>
-          {{ field }}
-          {% if field.errors %}
-            <div class="error">{{ field.errors|striptags }}</div>
+
+  <body>
+  <div class="main-wrapper">
+
+    <!-- LEFT SECTION -->
+    <div class="left-panel">
+      <h1>🏥 CareSync Hospital Portal</h1>
+      <p>Your trusted healthcare partner.  
+         Register your hospital and join the fastest growing network.</p>
+
+      <img src="{% static 'hospital/hospital_vector.png' %}" 
+           alt="Hospital Illustration" class="illustration">
+    </div>
+
+    <!-- RIGHT SECTION (FORM) -->
+    <div class="form-container">
+      <h2>Hospital Registration</h2>
+
+      <form method="POST" novalidate>
+        {% csrf_token %}
+
+        {% for field in form %}
+          {% if field.name == 'emergency_services' %}
+            <div class="form-group inline">
+              <label>{{ field.label }}</label>
+              {{ field }}
+              {% if field.errors %}
+                <div class="error">{{ field.errors|striptags }}</div>
+              {% endif %}
+            </div>
+          {% else %}
+            <div class="form-group">
+              <label>{{ field.label }}</label>
+              {{ field }}
+              {% if field.errors %}
+                <div class="error">{{ field.errors|striptags }}</div>
+              {% endif %}
+            </div>
           {% endif %}
+        {% endfor %}
+
+        <button type="submit" class="btn">Register Hospital</button>
+
+        <div class="login-link">
+          <a href="{% url 'hospital_login' %}">Already Registered? Login</a>
         </div>
-      {% endfor %}
-      <button type="submit" class="btn">Register Hospital</button>
-    </form>
+
+      </form>
+    </div>
+
   </div>
 </body>
+
+
 </html>
